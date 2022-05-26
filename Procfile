@@ -1,2 +1,5 @@
 web: gunicorn app:app --log-file=-
-git pull heroku main
+$ rake assets:precompile
+$ git add .
+$ git commit -m "Add precompiled assets for Heroku"
+$ git push heroku main
