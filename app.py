@@ -29,8 +29,11 @@ def reply():
         try:
             option = int(text)
         except:
-            res.message("Please enter a valid response")
-            return str(res)
+            msg = res.message(""नमस्कार, संपर्क केल्याबद्दल धन्यवाद *The Red Velvet*.\nYou can choose from one of the options below: "
+                    "\n\n*Type*\n\n 1️⃣ To *contact* us \n 2️⃣ To *order* snacks \n 3️⃣ To know our *working hours* \n 4️⃣ "
+                    "To get our *address*")
+            msg.media("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/lh6cbmqp5scuclcu_1574500060.jpeg")
+        return str(res)
 
         if option == 1:
             res.message(
