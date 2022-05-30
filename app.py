@@ -27,7 +27,7 @@ def reply():
         try:
             option = int(text)
         except:
-            res.message("Please enter a valid response")
+            res.message("Please enter a valid 1response")
             return str(res)
 
         if option == 1:
@@ -46,13 +46,13 @@ def reply():
             res.message(
             "We have multiple stores across the city. Our main center is at *4/54, New Delhi*")
         else:
-            res.message("Please enter a valid response")
+            res.message("Please enter a valid 2response")
 
     elif user["status"] == "ordering":
         try:
             option = int(text)
         except:
-            res.message("Please enter a valid response")
+            res.message("Please enter a valid 3response")
             return str(res)
         if option == 0:
             users.update_one({"number": number}, {"$set": {"status": "main"}})
@@ -67,7 +67,7 @@ def reply():
             res.message("Excellent choice 😉")
             res.message("Please enter your address to confirm the order")
         else:
-            res.message("Please enter a valid response")
+            res.message("Please enter a valid 4response")
 
     elif user["status"] == "address":
         selected = user["item"]
