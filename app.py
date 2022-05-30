@@ -20,10 +20,10 @@ def reply():
     res = MessagingResponse()
     user = users.find_one({"number": number})
     if bool(user) == False:
-        msg = res.message("Hi, thanks for contacting *The Red Velvet*.\nYou can choose from one of the options below: "
+        msg = res.message("नमस्कार, संपर्क केल्याबद्दल धन्यवाद *The Red Velvet*.\nYou can choose from one of the options below: "
                     "\n\n*Type*\n\n 1️⃣ To *contact* us \n 2️⃣ To *order* snacks \n 3️⃣ To know our *working hours* \n 4️⃣ "
                     "To get our *address*")
-        msg.media("https://i.ibb.co/BPKnXVP/Red-Velvet-Cake-Waldorf-Astoria.jpg")
+        msg.media("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/lh6cbmqp5scuclcu_1574500060.jpeg")
         users.insert_one({"number": number, "status": "main", "messages": []})
     elif user["status"] == "main":
         try:
