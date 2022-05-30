@@ -82,7 +82,7 @@ def reply():
         users.update_one(
             {"number": number}, {"$set": {"status": "ordered"}})
     elif user["status"] == "ordered":
-        res.message("Hi, thanks for contacting again.\nYou can choose from one of the options below: "
+        res.message("नमस्कार, संपर्क केल्याबद्दल धन्यवाद.\nYou can choose from one of the options below: "
                     "\n\n*Type*\n\n 1️⃣ To *contact* us \n 2️⃣ To *order* snacks \n 3️⃣ To know our *working hours* \n 4️⃣ "
                     "To get our *address*")
         users.update_one(
