@@ -4,7 +4,7 @@ from pymongo import MongoClient
 from datetime import datetime
 
 # Replace YOUR_URL with your mongodb url
-cluster = MongoClient("mongodb+srv://dbuser:dbpass@cluster0.jrbed.mongodb.net/?retryWrites=true&w=majority")
+cluster = MongoClient("YOUR_URL")
 db = cluster["bakery"]
 users = db["users"]
 orders = db["orders"]
@@ -21,19 +21,16 @@ def reply():
     user = users.find_one({"number": number})
     if bool(user) == False:
         msg = res.message("नमस्कार, संपर्क केल्याबद्दल धन्यवाद *The Red Velvet*.\nYou can choose from one of the options below: "
-                    "\n\n*Type*\n\n 1️⃣ To *contact* us \n 2️⃣ To *order* snacks \n 3️⃣ To know our *working hours* \n 4️⃣ "
-                    "To get our *address*")
+                        "\n\n*Type*\n\n 1️⃣ To *contact* us \n 2️⃣ To *order* snacks \n 3️⃣ To know our *working hours* \n 4️⃣ "
+                        "To get our *address*")
         msg.media("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/lh6cbmqp5scuclcu_1574500060.jpeg")
         users.insert_one({"number": number, "status": "main", "messages": []})
     elif user["status"] == "main":
         try:
             option = int(text)
         except:
-            msg = res.message("नमस्कार, संपर्क केल्याबद्दल धन्यवाद *The Red Velvet*.\nYou can choose from one of the options below: "
-                        "\n\n*Type*\n\n 1️⃣ To *contact* us \n 2️⃣ To *order* snacks \n 3️⃣ To know our *working hours* \n 4️⃣ "
-                        "To get our *address*")
-            msg.media("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/lh6cbmqp5scuclcu_1574500060.jpeg")
-        return str(res)
+            res.message("Please enter a valid response")
+            return str(res)
 
         if option == 1:
             res.message(
@@ -85,7 +82,7 @@ def reply():
         users.update_one(
             {"number": number}, {"$set": {"status": "ordered"}})
     elif user["status"] == "ordered":
-        res.message("नमस्कार, संपर्क केल्याबद्दल धन्यवाद.\nYou can choose from one of the options below: "
+        res.message("Hi, thanks for contacting again.\nYou can choose from one of the options below: "
                     "\n\n*Type*\n\n 1️⃣ To *contact* us \n 2️⃣ To *order* snacks \n 3️⃣ To know our *working hours* \n 4️⃣ "
                     "To get our *address*")
         users.update_one(
