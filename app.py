@@ -29,9 +29,9 @@ def reply():
         try:
             option = int(text)
         except:
-            msg = res.message("नमस्कार, संपर्क केल्याबद्दल धन्यवाद *The Red Velvet*.\nYou can choose from one of the options below: "
-                        "\n\n*Type*\n\n 1️⃣ To *contact* us \n 2️⃣ To *order* snacks \n 3️⃣ To know our *working hours* \n 4️⃣ "
-                        "To get our *address*")
+            msg = res.message("नमस्कार, संपर्क केल्याबद्दल धन्यवाद *नगरसेवक इंदापूर*.\nYou can choose from one of the options below: "
+                        "\n\n*Type*\n\n 1️⃣ विकास कार्य  us \n 2️⃣ नियोजित कार्य \n 3️⃣ इंदापूर मंजूर निधी \n 4️⃣ "
+                        "संपर्काचा पत्ता")
             msg.media("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/lh6cbmqp5scuclcu_1574500060.jpeg")
             return str(res)
 
